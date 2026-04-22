@@ -203,6 +203,10 @@ Known judge failure modes I did **not** fully address:
 - More adversarial cases around citation ordering, silent truncation, and partial confidential leakage
 - A lightweight export of diff results as Markdown for PR review
 
+## Walkthrough
+
+Video walkthrough: [https://youtu.be/09lYHdGqOHE](https://youtu.be/09lYHdGqOHE)
+
 ## Notes
 
 - Generated run artifacts are intentionally not tracked; keep only small fixture traces under `evals/fixtures/traces/`
