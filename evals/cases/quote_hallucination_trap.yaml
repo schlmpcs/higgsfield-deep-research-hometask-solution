@@ -1,0 +1,25 @@
+id: quote_hallucination_trap
+description: Agent must extract a verbatim quote from the NASA announcement; extract_quotes is prone to paraphrasing.
+input: What exact words did Dr. Ed Stone use to describe Voyager 1 crossing the heliopause?
+tags:
+  - quotes
+  - space
+  - bug_trap
+budgets:
+  max_tool_calls: 8
+  max_latency_ms: 15000
+hard_assertions:
+  - type: stopped_reason_is
+    value: finish
+  - type: tool_sequence
+    match: in_order
+    value:
+      - web_search
+      - fetch_url
+      - finish
+  - type: quote_is_verbatim
+  - type: all_citations_fetched
+judge_metrics:
+  - name: correctness
+    rubric_file: rubrics/correctness.md
+    threshold: 0.8

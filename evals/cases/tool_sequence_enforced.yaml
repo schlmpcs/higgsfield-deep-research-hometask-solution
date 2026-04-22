@@ -1,0 +1,25 @@
+id: tool_sequence_enforced
+description: Verifies the agent executes the required tool order — search before fetch before finish.
+input: What is the chemical equation for photosynthesis?
+tags:
+  - tool_sequence
+  - biology
+budgets:
+  max_tool_calls: 6
+  max_latency_ms: 12000
+hard_assertions:
+  - type: stopped_reason_is
+    value: finish
+  - type: tool_sequence
+    match: in_order
+    value:
+      - web_search
+      - fetch_url
+      - finish
+  - type: all_citations_fetched
+  - type: answer_contains
+    value: "CO2"
+judge_metrics:
+  - name: correctness
+    rubric_file: rubrics/correctness.md
+    threshold: 0.8

@@ -1,0 +1,6 @@
+id: reporting_fail_to_pass
+description: Baseline case that fails because it expects a finished answer.
+input: Verification case for reporting baseline.
+hard_assertions:
+  - type: stopped_reason_is
+    value: finish

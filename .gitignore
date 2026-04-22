@@ -1,0 +1,13 @@
+CODING_AGENT_PROMPTS.md
+IMPLEMENTATION_PLAN.md
+.env
+.pytest_cache/
+__pycache__/
+*.pyc
+evals/runs/
+traces/
+.claude/
+graphify-out/
+stitch_cinematic_eval_control_room/
+LOOM_INSTRUCTIONS.md
+CLAUDE.md

@@ -1,0 +1,19 @@
+id: ambiguous_mission_date
+description: "Ambiguous pronoun — 'Voyager' could mean V1 or V2; agent must surface the ambiguity."
+input: When did Voyager cross the heliopause?
+tags:
+  - ambiguity
+  - space
+budgets:
+  max_tool_calls: 8
+  max_latency_ms: 15000
+hard_assertions:
+  - type: stopped_reason_is
+    value: finish
+judge_metrics:
+  - name: ambiguity_handling
+    rubric_file: rubrics/ambiguity_handling.md
+    threshold: 0.5
+  - name: correctness
+    rubric_file: rubrics/correctness.md
+    threshold: 0.5

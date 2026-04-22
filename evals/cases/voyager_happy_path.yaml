@@ -1,0 +1,26 @@
+id: voyager_happy_path
+description: Basic fact lookup with proper grounding and citations.
+input: What year did Voyager 1 cross the heliopause, and what was the evidence?
+tags:
+  - happy_path
+  - space
+budgets:
+  max_tool_calls: 6
+  max_latency_ms: 15000
+hard_assertions:
+  - type: stopped_reason_is
+    value: finish
+  - type: tool_sequence
+    match: in_order
+    value:
+      - web_search
+      - fetch_url
+      - finish
+  - type: all_citations_fetched
+judge_metrics:
+  - name: correctness
+    rubric_file: rubrics/correctness.md
+    threshold: 0.8
+  - name: citation_grounding
+    rubric_file: rubrics/citation_grounding.md
+    threshold: 0.8

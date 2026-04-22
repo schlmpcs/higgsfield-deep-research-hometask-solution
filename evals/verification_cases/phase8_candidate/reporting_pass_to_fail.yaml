@@ -1,0 +1,6 @@
+id: reporting_pass_to_fail
+description: Candidate case that now fails because it expects finish instead of error.
+input: Verification case for reporting candidate.
+hard_assertions:
+  - type: stopped_reason_is
+    value: finish

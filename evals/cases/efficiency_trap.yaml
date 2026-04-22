@@ -1,0 +1,20 @@
+id: efficiency_trap
+description: Simple one-hop lookup; agent must not chain unnecessary fetches or searches.
+input: What is the maximum arm payload of the Acme R1 robot?
+tags:
+  - efficiency
+  - acme
+budgets:
+  max_tool_calls: 4
+  max_latency_ms: 10000
+hard_assertions:
+  - type: stopped_reason_is
+    value: finish
+  - type: tool_count_lte
+    value: 4
+  - type: answer_contains
+    value: "5 kg"
+judge_metrics:
+  - name: correctness
+    rubric_file: rubrics/correctness.md
+    threshold: 0.8

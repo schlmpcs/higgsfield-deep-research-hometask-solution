@@ -1,0 +1,8 @@
+id: reporting_fail_to_pass
+description: Candidate case that now passes on the auth/runtime error path.
+input: Verification case for reporting candidate.
+hard_assertions:
+  - type: stopped_reason_is
+    value: error
+  - type: tool_count_lte
+    value: 0

@@ -1,0 +1,8 @@
+id: reporting_pass_to_fail
+description: Baseline case that passes when the agent stops with an auth/runtime error.
+input: Verification case for reporting baseline.
+hard_assertions:
+  - type: stopped_reason_is
+    value: error
+  - type: tool_count_lte
+    value: 0
